@@ -1,9 +1,21 @@
 const clickMeButton = document.querySelector(".clickMe");
 
-function clickHandler()
+function turnPink()
 {
-    alert("Ouch")
-    clickMeButton.removeEventListener("click", clickHandler);
+    document.body.classList.add("pink");
 }
 
-clickMeButton.addEventListener("click", clickHandler /*or {once:true}*/);
+function toggleClickText()
+{
+    clickMeButton.classList.toggle("isClicked");
+        if ("clickMe isClicked" === clickMeButton.classList)
+        {
+            clickMeButton.textContent = "Clicked"
+        } else
+        {
+            clickMeButton.textContent = "Click me!"
+        }
+}
+
+clickMeButton.addEventListener("click", turnPink /*or {once:true}*/);
+clickMeButton.addEventListener("click", toggleClickText);
